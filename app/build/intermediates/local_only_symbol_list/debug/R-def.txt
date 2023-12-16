@@ -1,0 +1,37 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color primary
+color white
+drawable bic_brightness
+drawable ic_brightness
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_mirror
+drawable ic_reverse
+drawable ic_stopwatch
+drawable ic_zoom
+id authorBtn
+id brightness_slider
+id cardView
+id gamesRecyclerView
+id mirrorFlip
+id splash_logo
+id splash_progress
+id texture_view
+id toolIcon
+id toolName
+id zoom_slider
+layout activity_author
+layout activity_loading
+layout activity_main
+layout activity_mirror
+layout activity_stop_watch
+layout tool_item
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.ToolBank
+style Theme.ToolBank
+xml backup_rules
+xml data_extraction_rules
