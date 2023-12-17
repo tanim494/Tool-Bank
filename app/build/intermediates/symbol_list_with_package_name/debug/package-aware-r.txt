@@ -2974,6 +2974,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable bic_brightness
+drawable btn_bg
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3023,6 +3024,7 @@ drawable m3_tabs_background
 drawable m3_tabs_line_indicator
 drawable m3_tabs_rounded_line_indicator
 drawable m3_tabs_transparent_background
+drawable mainbg
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -3084,6 +3086,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable stwatch
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3187,6 +3190,9 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id brightness_slider
+id btnReset
+id btnStart
+id btnStop
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3503,8 +3509,6 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
-id splash_logo
-id splash_progress
 id spline
 id split_action_bar
 id spread
@@ -3575,6 +3579,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvElapsedTime
 id unchecked
 id uniform
 id unlabeled
@@ -3714,7 +3719,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_author
-layout activity_loading
 layout activity_main
 layout activity_mirror
 layout activity_stop_watch
@@ -3979,6 +3983,7 @@ style Animation_Material3_SideSheetDialog
 style Animation_Material3_SideSheetDialog_Left
 style Animation_Material3_SideSheetDialog_Right
 style Animation_MaterialComponents_BottomSheetDialog
+style AppButton
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

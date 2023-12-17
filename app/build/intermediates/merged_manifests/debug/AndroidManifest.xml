@@ -36,16 +36,6 @@
             android:name="com.tanim.toolbank.Author"
             android:exported="false" />
         <activity
-            android:name="com.tanim.toolbank.loading"
-            android:exported="true"
-            android:theme="@style/Theme.ToolBank" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.tanim.toolbank.StopWatch"
             android:exported="false" />
         <activity
@@ -53,7 +43,13 @@
             android:exported="false" />
         <activity
             android:name="com.tanim.toolbank.MainActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
         Service for holding metadata. Cannot be instantiated.
         Metadata will be merged from other manifests.

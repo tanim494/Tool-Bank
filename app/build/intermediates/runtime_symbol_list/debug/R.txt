@@ -2973,6 +2973,7 @@ int drawable abc_vector_test 0x7f070077
 int drawable avd_hide_password 0x7f070078
 int drawable avd_show_password 0x7f070079
 int drawable bic_brightness 0x7f0700ed
+int drawable btn_bg 0x7f0700f0
 int drawable btn_checkbox_checked_mtrl 0x7f07007a
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f07007b
 int drawable btn_checkbox_unchecked_mtrl 0x7f07007c
@@ -3022,6 +3023,7 @@ int drawable m3_tabs_background 0x7f0700a3
 int drawable m3_tabs_line_indicator 0x7f0700a4
 int drawable m3_tabs_rounded_line_indicator 0x7f0700a5
 int drawable m3_tabs_transparent_background 0x7f0700a6
+int drawable mainbg 0x7f0700ef
 int drawable material_cursor_drawable 0x7f0700a7
 int drawable material_ic_calendar_black_24dp 0x7f0700a8
 int drawable material_ic_clear_black_24dp 0x7f0700a9
@@ -3083,6 +3085,7 @@ int drawable notification_template_icon_bg 0x7f0700e0
 int drawable notification_template_icon_low_bg 0x7f0700e1
 int drawable notification_tile_bg 0x7f0700e2
 int drawable notify_panel_notification_icon_bg 0x7f0700e3
+int drawable stwatch 0x7f0700ee
 int drawable test_level_drawable 0x7f0700e4
 int drawable tooltip_frame_dark 0x7f0700e5
 int drawable tooltip_frame_light 0x7f0700e6
@@ -3186,6 +3189,9 @@ int id bounceBoth 0x7f080060
 int id bounceEnd 0x7f080061
 int id bounceStart 0x7f080062
 int id brightness_slider 0x7f080063
+int id btnReset 0x7f080200
+int id btnStart 0x7f080201
+int id btnStop 0x7f080202
 int id buttonPanel 0x7f080064
 int id cache_measures 0x7f080065
 int id callMeasure 0x7f080066
@@ -3502,8 +3508,6 @@ int id snapMargins 0x7f08019b
 int id south 0x7f08019c
 int id spacer 0x7f08019d
 int id special_effects_controller_view_tag 0x7f08019e
-int id splash_logo 0x7f08019f
-int id splash_progress 0x7f0801a0
 int id spline 0x7f0801a1
 int id split_action_bar 0x7f0801a2
 int id spread 0x7f0801a3
@@ -3574,6 +3578,7 @@ int id transition_position 0x7f0801e3
 int id transition_scene_layoutid_cache 0x7f0801e4
 int id transition_transform 0x7f0801e5
 int id triangle 0x7f0801e6
+int id tvElapsedTime 0x7f080203
 int id unchecked 0x7f0801e7
 int id uniform 0x7f0801e8
 int id unlabeled 0x7f0801e9
@@ -3713,7 +3718,6 @@ int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_author 0x7f0b001c
-int layout activity_loading 0x7f0b001d
 int layout activity_main 0x7f0b001e
 int layout activity_mirror 0x7f0b001f
 int layout activity_stop_watch 0x7f0b0020
@@ -3978,6 +3982,7 @@ int style Animation_Material3_SideSheetDialog 0x7f100007
 int style Animation_Material3_SideSheetDialog_Left 0x7f100008
 int style Animation_Material3_SideSheetDialog_Right 0x7f100009
 int style Animation_MaterialComponents_BottomSheetDialog 0x7f10000a
+int style AppButton 0x7f10045e
 int style Base_AlertDialog_AppCompat 0x7f10000b
 int style Base_AlertDialog_AppCompat_Light 0x7f10000c
 int style Base_Animation_AppCompat_Dialog 0x7f10000d

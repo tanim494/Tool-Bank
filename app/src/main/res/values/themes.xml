@@ -7,5 +7,19 @@
 
     <style name="Theme.ToolBank" parent="Base.Theme.ToolBank" >
         <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
     </style>
+
+    <!-- res/values/styles.xml -->
+    <style name="AppButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/btn_bg</item>
+        <item name="android:backgroundTint">@null</item> <!-- Disable background tint -->
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
 </resources>

@@ -40,7 +40,7 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     private CameraCaptureSession mCaptureSession;
     private CameraCaptureSession.CaptureCallback mCaptureCallback;
     private CaptureRequest.Builder mPreviewRequestBuilder;
-    private float currentZoomLevel = 1.0f;
+    private float currentZoomLevel = 0.5f;
     private static final int MIN_BRIGHTNESS = -3;
     private static final int MAX_BRIGHTNESS = 3;
     private static final int MIN_ZOOM = 0;
