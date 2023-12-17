@@ -4,10 +4,6 @@
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_activity_main.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\layout_activity_author.xml.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\layout\\activity_author.xml"
     },
@@ -64,6 +60,10 @@
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\btn_bg.xml"
     },
     {
+        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\layout_activity_flash_light.xml.flat",
+        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\layout\\activity_flash_light.xml"
+    },
+    {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
@@ -86,6 +86,26 @@
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_off.png.flat",
+        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_off.png"
+    },
+    {
+        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_flash.png.flat",
+        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_flash.png"
+    },
+    {
+        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_flash.jpg.flat",
+        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\flash.jpg"
+    },
+    {
+        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_activity_flash_light.xml.flat",
+        "source": "com.tanim.toolbank.app-main-38:/layout/activity_flash_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_on.png.flat",
+        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_on.png"
     },
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_launcher_foreground.xml.flat",

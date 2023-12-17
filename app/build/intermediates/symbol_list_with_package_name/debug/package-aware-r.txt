@@ -2998,6 +2998,7 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_flash
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3009,6 +3010,8 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_off
+drawable ic_on
 drawable ic_reverse
 drawable ic_search_black_24
 drawable ic_stopwatch
@@ -3293,6 +3296,7 @@ id fitStart
 id fitToContents
 id fitXY
 id fixed
+id flashSc
 id flip
 id floating
 id forever
@@ -3570,6 +3574,7 @@ id toolIcon
 id toolName
 id top
 id topPanel
+id torchToggle
 id touch_outside
 id transitionToEnd
 id transitionToStart
@@ -3719,6 +3724,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_author
+layout activity_flash_light
 layout activity_main
 layout activity_mirror
 layout activity_stop_watch

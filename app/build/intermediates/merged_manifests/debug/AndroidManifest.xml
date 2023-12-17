@@ -33,6 +33,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.ToolBank" >
         <activity
+            android:name="com.tanim.toolbank.FlashLight"
+            android:exported="false" />
+        <activity
             android:name="com.tanim.toolbank.Author"
             android:exported="false" />
         <activity

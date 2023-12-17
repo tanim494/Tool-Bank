@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="primary">#6E95B5</color>
+    <color name="primary">#1B1B1B</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Tool Bank</string>
+    <style name="AppButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/btn_bg</item>
+        <item name="android:backgroundTint">@null</item> 
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
     <style name="Base.Theme.ToolBank" parent="Theme.MaterialComponents.NoActionBar">
         
         
     </style>
     <style name="Theme.ToolBank" parent="Base.Theme.ToolBank">
         <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
     </style>
 </resources>

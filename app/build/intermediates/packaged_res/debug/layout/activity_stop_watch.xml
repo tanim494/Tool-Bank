@@ -1,9 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/stwatch"
     tools:context=".StopWatch">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvElapsedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_bg"
+        android:padding="10dp"
+        android:text="00:00:00:000"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_below="@id/tvElapsedTime"
+        android:weightSum="3"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnStart"
+            style="@style/AppButton"
+            android:text="Start"
+            android:layout_below="@id/tvElapsedTime"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/btnStop"
+            style="@style/AppButton"
+            android:text="Stop"
+            android:layout_below="@id/tvElapsedTime"
+            android:layout_toEndOf="@id/btnStart"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            style="@style/AppButton"
+            android:text="Reset"
+            android:layout_below="@id/tvElapsedTime"
+            android:layout_toEndOf="@id/btnStop"/>
+    </LinearLayout>
+
+</RelativeLayout>

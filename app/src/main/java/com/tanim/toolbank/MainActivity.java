@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<ToolModel> games = new ArrayList<>();
         games.add(new ToolModel("Mirror", R.drawable.ic_mirror));
         games.add(new ToolModel("Stop Watch", R.drawable.ic_stopwatch));
+        games.add(new ToolModel("Flash Light", R.drawable.ic_flash));
         // Add more games as needed
         return games;
     }

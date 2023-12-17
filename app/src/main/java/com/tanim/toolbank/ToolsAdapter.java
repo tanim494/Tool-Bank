@@ -55,6 +55,11 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHold
             case "Stop Watch" :
                 Intent in2 = new Intent(context, StopWatch.class);
                 context.startActivity(in2);
+                break;
+            case "Flash Light" :
+                Intent in3 = new Intent(context, FlashLight.class);
+                context.startActivity(in3);
+                break;
         }
     }
 
