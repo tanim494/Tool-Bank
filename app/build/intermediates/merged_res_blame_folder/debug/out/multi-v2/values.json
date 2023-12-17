@@ -208,10 +208,10 @@
                     "from": {
                         "startLines": "13,2,-1",
                         "startColumns": "4,4,-1",
-                        "startOffsets": "572,100,-1",
+                        "startOffsets": "525,53,-1",
                         "endLines": "22,5,-1",
                         "endColumns": "12,12,-1",
-                        "endOffsets": "1153,317,-1"
+                        "endOffsets": "1106,270,-1"
                     },
                     "to": {
                         "startLines": "2156,2566,6540",

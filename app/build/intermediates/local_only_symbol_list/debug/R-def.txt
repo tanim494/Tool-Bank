@@ -3,7 +3,6 @@ local
 color black
 color primary
 color white
-drawable bic_brightness
 drawable btn_bg
 drawable ic_brightness
 drawable ic_flash

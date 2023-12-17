@@ -30,26 +30,11 @@ public class StopWatch extends AppCompatActivity {
         btnStop = findViewById(R.id.btnStop);
         btnReset = findViewById(R.id.btnReset);
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleTimer();
-            }
-        });
+        btnStart.setOnClickListener(v -> toggleTimer());
 
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stopTimer();
-            }
-        });
+        btnStop.setOnClickListener(v -> stopTimer());
 
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetTimer();
-            }
-        });
+        btnReset.setOnClickListener(v -> resetTimer());
     }
 
     private void toggleTimer() {

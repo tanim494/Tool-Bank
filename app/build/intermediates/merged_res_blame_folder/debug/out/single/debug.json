@@ -4,6 +4,10 @@
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_activity_stop_watch.xml.flat",
+        "source": "com.tanim.toolbank.app-main-38:/layout/activity_stop_watch.xml"
+    },
+    {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\layout_activity_author.xml.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\layout\\activity_author.xml"
     },
@@ -120,31 +124,4 @@
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_zoom.xml"
     },
     {
-        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-xhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_stwatch.jpg.flat",
-        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\stwatch.jpg"
-    },
-    {
-        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_mirror.png.flat",
-        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_mirror.png"
-    },
-    {
-        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-mdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-hdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_stopwatch.png.flat",
-        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_stopwatch.png"
-    },
-    {
-        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\layout\\activity_main.xml"
-    }
-]
+        "merged": "C:\\Users\\tani                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
