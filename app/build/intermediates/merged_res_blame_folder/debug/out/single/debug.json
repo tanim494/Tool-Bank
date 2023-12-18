@@ -24,6 +24,10 @@
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "com.tanim.toolbank.app-merged_res-36:/drawable_tmainbg.jpg.flat",
+        "source": "com.tanim.toolbank.app-main-38:/drawable/tmainbg.jpg"
+    },
+    {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
@@ -58,10 +62,6 @@
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/drawable_mmainbg.jpg.flat",
-        "source": "com.tanim.toolbank.app-main-38:/drawable/mmainbg.jpg"
     },
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-hdpi_ic_launcher.webp.flat",
@@ -162,6 +162,10 @@
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_mmainbg.jpg.flat",
+        "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\mmainbg.jpg"
     },
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-hdpi_ic_launcher_round.webp.flat",

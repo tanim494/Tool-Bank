@@ -20,9 +20,9 @@ drawable ic_stopwatch
 drawable ic_web
 drawable ic_zoom
 drawable mainbg
-drawable mmainbg
 drawable rounded_button
 drawable stwatch
+drawable tmainbg
 id authorAddress
 id authorBtn
 id authorMail
