@@ -2997,7 +2997,11 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_email
+drawable ic_fb
 drawable ic_flash
+drawable ic_github
+drawable ic_home
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3014,6 +3018,7 @@ drawable ic_on
 drawable ic_reverse
 drawable ic_search_black_24
 drawable ic_stopwatch
+drawable ic_web
 drawable ic_zoom
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
@@ -3037,6 +3042,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable mmainbg
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3088,6 +3094,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable rounded_button
 drawable stwatch
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3175,7 +3182,9 @@ id anticipate
 id arc
 id asConfigured
 id async
+id authorAddress
 id authorBtn
+id authorMail
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -3281,6 +3290,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id facebookButton
 id fade
 id fill
 id fillCenter
@@ -3305,6 +3315,7 @@ id fullscreen_header
 id gamesRecyclerView
 id ghost_view
 id ghost_view_holder
+id githubButton
 id gone
 id graph
 id graph_wrap
@@ -3598,6 +3609,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id websiteButton
 id west
 id withText
 id with_icon
@@ -3745,6 +3757,9 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_add
+layout item_email
+layout item_image
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
