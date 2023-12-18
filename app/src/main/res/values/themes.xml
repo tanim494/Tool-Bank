@@ -8,6 +8,7 @@
     <style name="Theme.ToolBank" parent="Base.Theme.ToolBank" >
         <item name="android:statusBarColor">@color/primary</item>
         <item name="android:navigationBarColor">@color/primary</item>
+
     </style>
 
     <!-- res/values/styles.xml -->
