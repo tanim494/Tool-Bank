@@ -8,19 +8,21 @@
 
     <TextureView
         android:id="@+id/texture_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="900px"
+        android:layout_height="1600px"
         android:layout_centerInParent="true"
-        android:layout_gravity="center"
-         />
+        android:layout_gravity="center" />
+
     <ImageView
         android:id="@+id/mirrorFlip"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="16dp"
-        app:tint="@color/white"
-        android:src="@drawable/ic_reverse"
-        />
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_flip"
+        app:tint="@color/white" />
 
     <!-- Slider for adjusting brightness (left to right) -->
     <SeekBar
@@ -33,24 +35,19 @@
         android:layout_centerHorizontal="true"
         android:thumb="@drawable/ic_brightness"
         android:thumbTint="@color/white"
-
         android:layout_gravity="center"
         android:visibility="visible" />
 
+    <!-- Slider for adjusting zoom (down to up) -->
     <SeekBar
         android:id="@+id/zoom_slider"
         android:layout_above="@id/brightness_slider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:thumbTint="@color/white"
         android:thumb="@drawable/ic_zoom"
         android:layout_margin="20dp"
         android:max="10" />
-
-
-    <!-- Slider for adjusting zoom (down to up) -->
-
-
-
 
 </RelativeLayout>

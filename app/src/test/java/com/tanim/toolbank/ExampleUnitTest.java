@@ -1,4 +1,4 @@
-package com.example.ntoolbank;
+package com.tanim.toolbank;
 
 import org.junit.Test;
 
