@@ -18,6 +18,8 @@ import android.view.TextureView;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Toast;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,6 +50,7 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_mirror);
 
         mTextureView = findViewById(R.id.texture_view);

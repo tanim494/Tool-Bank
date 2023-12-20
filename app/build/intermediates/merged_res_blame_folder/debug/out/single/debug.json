@@ -4,24 +4,8 @@
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_activity_main.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/layout/activity_main.xml"
-    },
-    {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_activity_stop_watch.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/layout/activity_stop_watch.xml"
-    },
-    {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/drawable_ic_brightness.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/drawable/ic_brightness.xml"
-    },
-    {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\xml\\data_extraction_rules.xml"
-    },
-    {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_item_add.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/layout/item_add.xml"
     },
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_flip.xml.flat",
@@ -46,10 +30,6 @@
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_rounded_button.xml.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\rounded_button.xml"
-    },
-    {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_item_image.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/layout/item_image.xml"
     },
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-xhdpi_ic_launcher.webp.flat",
@@ -82,10 +62,6 @@
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_mainbg.jpg.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\mainbg.jpg"
-    },
-    {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/layout_item_email.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/layout/item_email.xml"
     },
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -166,10 +142,6 @@
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_minus.xml.flat",
         "source": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-main-38:\\drawable\\ic_minus.xml"
-    },
-    {
-        "merged": "com.tanim.toolbank.app-merged_res-36:/drawable_ic_flip.xml.flat",
-        "source": "com.tanim.toolbank.app-main-38:/drawable/ic_flip.xml"
     },
     {
         "merged": "C:\\Users\\tanim\\.gradle\\daemon\\8.2\\com.tanim.toolbank.app-merged_res-36:\\drawable_ic_launcher_background.xml.flat",

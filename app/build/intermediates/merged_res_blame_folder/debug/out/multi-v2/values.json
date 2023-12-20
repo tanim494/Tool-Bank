@@ -206,12 +206,12 @@
                 {
                     "source": "C:\\Users\\tanim\\AndroidStudioProjects\\ToolBank\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
-                        "startLines": "14,2,-1",
-                        "startColumns": "4,4,-1",
-                        "startOffsets": "526,53,-1",
-                        "endLines": "19,5,-1",
-                        "endColumns": "12,12,-1",
-                        "endOffsets": "778,270,-1"
+                        "startLines": "-1,2,-1",
+                        "startColumns": "-1,4,-1",
+                        "startOffsets": "-1,53,-1",
+                        "endLines": "-1,5,-1",
+                        "endColumns": "-1,12,-1",
+                        "endOffsets": "-1,270,-1"
                     },
                     "to": {
                         "startLines": "2156,2562,6536",
