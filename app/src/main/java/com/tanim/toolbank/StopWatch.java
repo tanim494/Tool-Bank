@@ -59,13 +59,6 @@ public class StopWatch extends AppCompatActivity {
         handler.removeCallbacks(runnable);
     }
 
-    private void stopTimer() {
-        isRunning = false;
-        btnStart.setImageResource(R.drawable.ic_play);
-        handler.removeCallbacks(runnable);
-        // Add any additional stop functionality if needed
-    }
-
     private void resetTimer() {
         isRunning = false;
         btnStart.setImageResource(R.drawable.ic_play);
