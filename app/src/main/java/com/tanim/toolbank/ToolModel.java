@@ -1,8 +1,8 @@
 package com.tanim.toolbank;
 
 public class ToolModel {
-    private String name;
-    private int iconResourceId;
+    private final String name;
+    private final int iconResourceId;
 
     public ToolModel(String name, int iconResourceId) {
         this.name = name;

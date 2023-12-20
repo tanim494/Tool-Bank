@@ -16,8 +16,8 @@ import java.util.ArrayList;
 
 public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHolder> {
 
-    private Context context;
-    private ArrayList<ToolModel> toolList;
+    private final Context context;
+    private final ArrayList<ToolModel> toolList;
 
     public ToolsAdapter(Context context, ArrayList<ToolModel> toolList) {
         this.context = context;
@@ -71,9 +71,9 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHold
     }
 
     static class ToolViewHolder extends RecyclerView.ViewHolder {
-        CardView cardView;
-        ImageView toolIcon;
-        TextView toolName;
+        final CardView cardView;
+        final ImageView toolIcon;
+        final TextView toolName;
 
         ToolViewHolder(@NonNull View itemView) {
             super(itemView);

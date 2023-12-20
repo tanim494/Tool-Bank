@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,16 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:layout_gravity="center"
-         />
+        android:layout_gravity="center" />
+
     <ImageView
         android:id="@+id/mirrorFlip"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="16dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_flip"
         app:tint="@color/white"
-        android:src="@drawable/ic_reverse"
-        />
+        android:importantForAccessibility="no" />
 
     <!-- Slider for adjusting brightness (left to right) -->
     <SeekBar
@@ -33,24 +37,29 @@
         android:layout_centerHorizontal="true"
         android:thumb="@drawable/ic_brightness"
         android:thumbTint="@color/white"
-
         android:layout_gravity="center"
         android:visibility="visible" />
-
-    <SeekBar
-        android:id="@+id/zoom_slider"
-        android:layout_above="@id/brightness_slider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:thumb="@drawable/ic_zoom"
-        android:layout_margin="20dp"
-        android:max="10" />
-
-
-    <!-- Slider for adjusting zoom (down to up) -->
-
-
-
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:layout_above="@id/brightness_slider">
+    <!-- Buttons for adjusting zoom -->
+    <ImageView
+        android:id="@+id/zoom_in_button"
+        android:layout_height="48dp"
+        android:layout_width="48dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_plus"
+        app:tint="@color/white"
+        android:importantForAccessibility="no" />
+    <ImageView
+        android:id="@+id/zoom_out_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_minus"
+        app:tint="@color/white"
+        android:importantForAccessibility="no" />
+</LinearLayout>
 </RelativeLayout>

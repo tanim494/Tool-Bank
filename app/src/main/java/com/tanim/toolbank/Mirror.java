@@ -33,17 +33,16 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     private CameraManager mCameraManager;
     private String mCameraId;
     private Surface mSurface;
-    private SeekBar mBrightnessSeekBar;
-    private SeekBar mZoomSeekBar;
+    ImageView zoomIn;
+    ImageView zoomOut;
     private CameraDevice mCameraDevice;
     private CameraCaptureSession mCaptureSession;
     private CameraCaptureSession.CaptureCallback mCaptureCallback;
     private CaptureRequest.Builder mPreviewRequestBuilder;
-    private float currentZoomLevel = 0.5f;
+    private float currentZoomLevel = 1f;
     private static final int MIN_BRIGHTNESS = -3;
     private static final int MAX_BRIGHTNESS = 3;
-    private static final int MIN_ZOOM = 0;
-    private static final int MAX_ZOOM = 3;
+    private static final float MAX_ZOOM_LEVEL = 4.0f;
     ImageView mirrorFlip;
 
     @Override
@@ -54,21 +53,20 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         mTextureView = findViewById(R.id.texture_view);
         mTextureView.setSurfaceTextureListener(this);
 
-        mBrightnessSeekBar = findViewById(R.id.brightness_slider);
-        mZoomSeekBar = findViewById(R.id.zoom_slider);
+        SeekBar mBrightnessSeekBar = findViewById(R.id.brightness_slider);
+        zoomIn = findViewById(R.id.zoom_in_button);
+        zoomOut = findViewById(R.id.zoom_out_button);
         mirrorFlip = findViewById(R.id.mirrorFlip);
 
         mirrorFlip.setOnClickListener(v -> {
             float currentScaleX = mTextureView.getScaleX();
-
+        Toast.makeText(Mirror.this, "Mirror Flipped", Toast.LENGTH_SHORT).show();
             if (currentScaleX == -1) {
                 // If the current scale is not -1, set it to -1
                 mTextureView.setScaleX(1);
-                Toast.makeText(Mirror.this, "ScaleX set to 1", Toast.LENGTH_SHORT).show();
             } else if (currentScaleX == 1) {
                 mTextureView.setScaleX(-1);
                 // Optional: Handle the case when the current scale is already -1
-                Toast.makeText(Mirror.this, "ScaleX is -1", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -90,22 +88,9 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
             }
         });
 
-        mZoomSeekBar.setMax(MAX_ZOOM - MIN_ZOOM);
-        mZoomSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int zoomValue = progress + MIN_ZOOM;
-                zoomCamera(zoomValue);
-            }
+        zoomIn.setOnClickListener(v -> zoomCamera(0.5F));
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
+        zoomOut.setOnClickListener(v -> zoomCamera((float) -0.5));
 
         mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
@@ -235,8 +220,10 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         try {
             currentZoomLevel += deltaZoom;
 
-            // Clamp the zoom level to the valid range
-            currentZoomLevel = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, currentZoomLevel));
+            // Ensure that the zoom level is within the valid range
+            currentZoomLevel = Math.max(1.0f, Math.min(MAX_ZOOM_LEVEL, currentZoomLevel));
+
+            Log.d("Camera", "Zoom level: " + currentZoomLevel);
 
             Rect zoomRect = calculateZoomRect(currentZoomLevel);
 
@@ -244,9 +231,14 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
 
             mCaptureSession.setRepeatingRequest(mPreviewRequestBuilder.build(), mCaptureCallback, null);
         } catch (CameraAccessException e) {
+            Log.e("Camera", "Error accessing camera: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            Log.e("Camera", "Unexpected error: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
 
 
     // Other methods remain the same...

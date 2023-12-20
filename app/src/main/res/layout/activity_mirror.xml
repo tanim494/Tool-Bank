@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +9,8 @@
 
     <TextureView
         android:id="@+id/texture_view"
-        android:layout_width="900px"
-        android:layout_height="1600px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:layout_gravity="center" />
 
@@ -22,7 +23,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/ic_flip"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        android:importantForAccessibility="no" />
 
     <!-- Slider for adjusting brightness (left to right) -->
     <SeekBar
@@ -37,17 +39,27 @@
         android:thumbTint="@color/white"
         android:layout_gravity="center"
         android:visibility="visible" />
-
-    <!-- Slider for adjusting zoom (down to up) -->
-    <SeekBar
-        android:id="@+id/zoom_slider"
-        android:layout_above="@id/brightness_slider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:thumbTint="@color/white"
-        android:thumb="@drawable/ic_zoom"
-        android:layout_margin="20dp"
-        android:max="10" />
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:layout_above="@id/brightness_slider">
+    <!-- Buttons for adjusting zoom -->
+    <ImageView
+        android:id="@+id/zoom_in_button"
+        android:layout_height="48dp"
+        android:layout_width="48dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_plus"
+        app:tint="@color/white"
+        android:importantForAccessibility="no" />
+    <ImageView
+        android:id="@+id/zoom_out_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_minus"
+        app:tint="@color/white"
+        android:importantForAccessibility="no" />
+</LinearLayout>
 </RelativeLayout>

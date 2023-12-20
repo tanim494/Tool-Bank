@@ -2,7 +2,7 @@ package com.tanim.toolbank;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,12 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class StopWatch extends AppCompatActivity {
 
     private TextView tvElapsedTime;
-    private Button btnStart;
-    private Button btnStop;
-    private Button btnReset;
+    private ImageView btnStart;
 
     private boolean isRunning = false;
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
     private Runnable runnable;
     private long milliseconds = 0;
 
@@ -26,12 +24,9 @@ public class StopWatch extends AppCompatActivity {
 
         tvElapsedTime = findViewById(R.id.tvElapsedTime);
         btnStart = findViewById(R.id.btnStart);
-        btnStop = findViewById(R.id.btnStop);
-        btnReset = findViewById(R.id.btnReset);
+        ImageView btnReset = findViewById(R.id.btnReset);
 
         btnStart.setOnClickListener(v -> toggleTimer());
-
-        btnStop.setOnClickListener(v -> stopTimer());
 
         btnReset.setOnClickListener(v -> resetTimer());
     }
@@ -46,7 +41,7 @@ public class StopWatch extends AppCompatActivity {
 
     private void startTimer() {
         isRunning = true;
-        btnStart.setText("Pause");
+        btnStart.setImageResource(R.drawable.ic_pause);
         runnable = new Runnable() {
             @Override
             public void run() {
@@ -60,20 +55,20 @@ public class StopWatch extends AppCompatActivity {
 
     private void pauseTimer() {
         isRunning = false;
-        btnStart.setText("Start");
+        btnStart.setImageResource(R.drawable.ic_play);
         handler.removeCallbacks(runnable);
     }
 
     private void stopTimer() {
         isRunning = false;
-        btnStart.setText("Start");
+        btnStart.setImageResource(R.drawable.ic_play);
         handler.removeCallbacks(runnable);
         // Add any additional stop functionality if needed
     }
 
     private void resetTimer() {
         isRunning = false;
-        btnStart.setText("Start");
+        btnStart.setImageResource(R.drawable.ic_play);
         handler.removeCallbacks(runnable);
         milliseconds = 0;
         updateElapsedTime();
