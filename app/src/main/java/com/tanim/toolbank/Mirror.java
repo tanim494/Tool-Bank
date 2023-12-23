@@ -104,6 +104,7 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
                 WindowManager.LayoutParams windowParams = getWindow().getAttributes();
                 windowParams.screenBrightness = 0.4f;  // 1.0f means full brightness
                 getWindow().setAttributes(windowParams);
+                Toast.makeText(Mirror.this, "Flash turned ON", Toast.LENGTH_SHORT).show();
                 flashOn = true;
             } else {
                 ViewGroup.LayoutParams layoutParams = mTextureView.getLayoutParams();
@@ -111,6 +112,7 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
                 layoutParams.height = 720;  // Set the desired height in pixels
                 mTextureView.setLayoutParams(layoutParams);
                 adjustBrightness(initialBrightness);
+                Toast.makeText(Mirror.this, "Flash turned OFF", Toast.LENGTH_SHORT).show();
                 flashOn = false;
             }
             camFrame.setBackgroundColor(flashOn ? Color.WHITE : Color.BLACK);
@@ -130,11 +132,9 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
             float currentScaleX = mTextureView.getScaleX();
         Toast.makeText(Mirror.this, "Mirror Flipped", Toast.LENGTH_SHORT).show();
             if (currentScaleX == -1) {
-                // If the current scale is not -1, set it to -1
                 mTextureView.setScaleX(1);
             } else if (currentScaleX == 1) {
                 mTextureView.setScaleX(-1);
-                // Optional: Handle the case when the current scale is already -1
             }
         });
 
@@ -342,7 +342,9 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
                     "Seriously, you're turning heads wherever you go.",
                     "Your impeccable sense of style is truly noteworthy.",
                     "You're a vision of natural, captivating beauty.",
-                    "You're beautiful, the way you are."
+                    "You're beautiful, the way you are.",
+                    "I'm speechless by your beauty.",
+                    "You have nice eyes."
             };
 
             int ranPos = (int) (Math.random() * compString.length);
