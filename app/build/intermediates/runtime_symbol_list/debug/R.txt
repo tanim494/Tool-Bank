@@ -2999,6 +2999,7 @@ int drawable ic_clock_black_24dp 0x7f070090
 int drawable ic_email 0x7f070091
 int drawable ic_fb 0x7f070092
 int drawable ic_flash 0x7f070093
+int drawable ic_flashlight 0x7f0700f8
 int drawable ic_flip 0x7f070094
 int drawable ic_github 0x7f070095
 int drawable ic_home 0x7f070096
@@ -3206,6 +3207,7 @@ int id btnStart 0x7f080067
 int id buttonPanel 0x7f080068
 int id cache_measures 0x7f080069
 int id callMeasure 0x7f08006a
+int id cameraFrame 0x7f08020a
 int id cancel_button 0x7f08006b
 int id cardView 0x7f08006c
 int id carryVelocity 0x7f08006d
@@ -3305,6 +3307,7 @@ int id fitToContents 0x7f0800ca
 int id fitXY 0x7f0800cb
 int id fixed 0x7f0800cc
 int id flashSc 0x7f0800cd
+int id flashToggle 0x7f080209
 int id flip 0x7f0800ce
 int id floating 0x7f0800cf
 int id forever 0x7f0800d0

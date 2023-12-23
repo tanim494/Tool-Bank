@@ -3000,6 +3000,7 @@ drawable ic_clock_black_24dp
 drawable ic_email
 drawable ic_fb
 drawable ic_flash
+drawable ic_flashlight
 drawable ic_flip
 drawable ic_github
 drawable ic_home
@@ -3207,6 +3208,7 @@ id btnStart
 id buttonPanel
 id cache_measures
 id callMeasure
+id cameraFrame
 id cancel_button
 id cardView
 id carryVelocity
@@ -3306,6 +3308,7 @@ id fitToContents
 id fitXY
 id fixed
 id flashSc
+id flashToggle
 id flip
 id floating
 id forever

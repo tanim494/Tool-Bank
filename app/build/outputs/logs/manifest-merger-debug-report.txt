@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-44:12
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-47:12
+INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:2:1-47:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\tanim\.gradle\caches\transforms-3\083b7075f847dc2dd5f52019dfe33d0f\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.camera:camera-video:1.3.1] C:\Users\tanim\.gradle\caches\transforms-3\0cc86643fd79f498b2a47bcd3ef34a57\transformed\camera-video-1.3.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-core:1.3.1] C:\Users\tanim\.gradle\caches\transforms-3\73ccee3e9ab1dc114ff89c122d9506c0\transformed\camera-core-1.3.1\AndroidManifest.xml:17:1-36:12
@@ -73,9 +73,15 @@ uses-permission#android.permission.CAMERA
 ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:8:5-65
 	android:name
 		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:8:22-62
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:9:5-10:47
+	tools:ignore
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:10:9-44
+	android:name
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:9:22-70
 application
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:10:5-42:19
-INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:10:5-42:19
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:13:5-45:19
+INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:13:5-45:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\tanim\.gradle\caches\transforms-3\083b7075f847dc2dd5f52019dfe33d0f\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\tanim\.gradle\caches\transforms-3\083b7075f847dc2dd5f52019dfe33d0f\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.camera:camera-core:1.3.1] C:\Users\tanim\.gradle\caches\transforms-3\73ccee3e9ab1dc114ff89c122d9506c0\transformed\camera-core-1.3.1\AndroidManifest.xml:23:5-34:19
@@ -101,63 +107,63 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\tanim\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] C:\Users\tanim\.gradle\caches\transforms-3\d0b433c2e2e8cae6fb14ef3633a053fb\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:20:9-35
 	android:label
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:18:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:16:9-54
 	android:roundIcon
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:16:9-43
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:19:9-43
 	tools:targetApi
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:19:9-29
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:22:9-29
 	android:icon
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:14:9-38
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:17:9-38
 	android:allowBackup
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:18:9-46
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:21:9-46
 	android:dataExtractionRules
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:12:9-65
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:15:9-65
 activity#com.tanim.toolbank.FlashLight
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:20:9-22:40
-	android:exported
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:22:13-37
-	android:name
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:21:13-39
-activity#com.tanim.toolbank.Author
 ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
 		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:24:13-35
-activity#com.tanim.toolbank.StopWatch
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:24:13-39
+activity#com.tanim.toolbank.Author
 ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
 		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:27:13-38
-activity#com.tanim.toolbank.Mirror
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:29:9-32:15
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:27:13-35
+activity#com.tanim.toolbank.StopWatch
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:29:9-31:40
 	android:exported
 		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:31:13-37
 	android:name
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:30:13-35
-activity#com.tanim.toolbank.MainActivity
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:33:9-41:20
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:30:13-38
+activity#com.tanim.toolbank.Mirror
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:32:9-35:15
 	android:exported
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:35:13-36
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:34:13-37
 	android:name
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:34:13-41
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:33:13-35
+activity#com.tanim.toolbank.MainActivity
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:36:9-44:20
+	android:exported
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:38:13-36
+	android:name
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:37:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:36:13-40:29
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:39:13-43:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:37:17-69
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:40:17-69
 	android:name
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:37:25-66
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:40:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:39:17-77
+ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:42:17-77
 	android:name
-		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:39:27-74
+		ADDED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml:42:27-74
 uses-sdk
 INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\tanim\AndroidStudioProjects\ToolBank\app\src\main\AndroidManifest.xml

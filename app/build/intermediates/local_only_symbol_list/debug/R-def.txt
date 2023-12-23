@@ -8,6 +8,7 @@ drawable ic_brightness
 drawable ic_email
 drawable ic_fb
 drawable ic_flash
+drawable ic_flashlight
 drawable ic_flip
 drawable ic_github
 drawable ic_home
@@ -30,9 +31,11 @@ id authorMail
 id brightness_slider
 id btnReset
 id btnStart
+id cameraFrame
 id cardView
 id facebookButton
 id flashSc
+id flashToggle
 id gamesRecyclerView
 id githubButton
 id mirrorFlip

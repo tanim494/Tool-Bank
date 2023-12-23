@@ -9,7 +9,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
-import android.graphics.drawable.ColorDrawable;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -17,13 +16,13 @@ import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CaptureRequest;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -34,7 +33,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.view.ViewCompat;
 
 import java.util.Collections;
 import java.util.List;
@@ -60,10 +58,6 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     private static final int MAX_BRIGHTNESS = 3;
     private static final float MAX_ZOOM_LEVEL = 2.5f;
     private boolean flashOn;
-    private int initialWidth;
-    private int initialHeight;
-    private int initialBackgroundColor;
-    private ColorStateList initialImageTintList;
     private int initialBrightness;
 
     @Override
@@ -82,17 +76,14 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         flashLight = findViewById(R.id.flashToggle);
         camFrame = findViewById(R.id.cameraFrame);
 
-        initialWidth = mTextureView.getWidth();
-        initialHeight = mTextureView.getHeight();
-        initialBackgroundColor = Color.BLACK;
-        initialImageTintList = ColorStateList.valueOf(Color.WHITE);
-
+        //Toast.makeText(Mirror.this, complement(), Toast.LENGTH_LONG).show();
+        complement();
 
         flashOn = false;
         flashLight.setOnClickListener(v -> {
             if (!flashOn) {
                 // Check if the WRITE_SETTINGS permission is not granted
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.System.canWrite(this)) {
+                if (!Settings.System.canWrite(this)) {
                     // Request the WRITE_SETTINGS permission
                     Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
                     intent.setData(Uri.parse("package:" + getPackageName()));
@@ -115,10 +106,10 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
                 getWindow().setAttributes(windowParams);
                 flashOn = true;
             } else {
-                /*ViewGroup.LayoutParams layoutParams = mTextureView.getLayoutParams();
-                layoutParams.width = initialWidth;  // Set the desired width in pixels
-                layoutParams.height = initialHeight;  // Set the desired height in pixels
-                mTextureView.setLayoutParams(layoutParams);*/
+                ViewGroup.LayoutParams layoutParams = mTextureView.getLayoutParams();
+                layoutParams.width = 1280;  // Set the desired width in pixels
+                layoutParams.height = 720;  // Set the desired height in pixels
+                mTextureView.setLayoutParams(layoutParams);
                 adjustBrightness(initialBrightness);
                 flashOn = false;
             }
@@ -179,16 +170,6 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     }
 
     // Other methods remain the same...
-
-    private int getCurrentBrightness() {
-        ContentResolver cResolver = getContentResolver();
-        try {
-            return Settings.System.getInt(cResolver, Settings.System.SCREEN_BRIGHTNESS);
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
 
     private void openCamera() {
         try {
@@ -347,4 +328,28 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
             return new Rect(0, 0, 0, 0);
         }
     }
+    private void complement() {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(() -> {
+            // Code to be executed after the delay
+            // For example, update UI or perform some task
+            String[] compString = {
+                    "OMG! You look absolutely stunning!",
+                    "It's like you've stepped out of a magazine cover.",
+                    "Your presence is truly mesmerizing.",
+                    "I can't help but be in awe of your effortless beauty.",
+                    "You carry yourself with such grace and style.",
+                    "Seriously, you're turning heads wherever you go.",
+                    "Your impeccable sense of style is truly noteworthy.",
+                    "You're a vision of natural, captivating beauty.",
+                    "You're beautiful, the way you are."
+            };
+
+            int ranPos = (int) (Math.random() * compString.length);
+            Toast.makeText(Mirror.this, compString[ranPos], Toast.LENGTH_LONG).show();
+        }, 2000);
+
+
+    }
+
 }

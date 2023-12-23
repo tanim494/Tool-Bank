@@ -12,6 +12,7 @@
     <uses-feature android:name="android.hardware.camera.front" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <permission
         android:name="com.tanim.toolbank.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
