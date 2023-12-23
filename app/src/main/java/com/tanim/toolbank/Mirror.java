@@ -1,27 +1,40 @@
 package com.tanim.toolbank;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CaptureRequest;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.ViewCompat;
 
 import java.util.Collections;
 import java.util.List;
@@ -35,6 +48,9 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     private Surface mSurface;
     ImageView zoomIn;
     ImageView zoomOut;
+    ImageView mirrorFlip;
+    ImageView flashLight;
+    RelativeLayout camFrame;
     private CameraDevice mCameraDevice;
     private CameraCaptureSession mCaptureSession;
     private CameraCaptureSession.CaptureCallback mCaptureCallback;
@@ -42,13 +58,18 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     private float currentZoomLevel = 1f;
     private static final int MIN_BRIGHTNESS = -3;
     private static final int MAX_BRIGHTNESS = 3;
-    private static final float MAX_ZOOM_LEVEL = 4.0f;
-    ImageView mirrorFlip;
+    private static final float MAX_ZOOM_LEVEL = 2.5f;
+    private boolean flashOn;
+    private int initialWidth;
+    private int initialHeight;
+    private int initialBackgroundColor;
+    private ColorStateList initialImageTintList;
+    private int initialBrightness;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_mirror);
 
         mTextureView = findViewById(R.id.texture_view);
@@ -58,6 +79,61 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         zoomIn = findViewById(R.id.zoom_in_button);
         zoomOut = findViewById(R.id.zoom_out_button);
         mirrorFlip = findViewById(R.id.mirrorFlip);
+        flashLight = findViewById(R.id.flashToggle);
+        camFrame = findViewById(R.id.cameraFrame);
+
+        initialWidth = mTextureView.getWidth();
+        initialHeight = mTextureView.getHeight();
+        initialBackgroundColor = Color.BLACK;
+        initialImageTintList = ColorStateList.valueOf(Color.WHITE);
+
+
+        flashOn = false;
+        flashLight.setOnClickListener(v -> {
+            if (!flashOn) {
+                // Check if the WRITE_SETTINGS permission is not granted
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.System.canWrite(this)) {
+                    // Request the WRITE_SETTINGS permission
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                    intent.setData(Uri.parse("package:" + getPackageName()));
+                    startActivity(intent);
+                }
+                // Set width and height for mTextureView
+                ViewGroup.LayoutParams layoutParams = mTextureView.getLayoutParams();
+                layoutParams.width = 900;  // Set the desired width in pixels
+                layoutParams.height = 1500;  // Set the desired height in pixels
+                mTextureView.setLayoutParams(layoutParams);
+
+                // Set brightness to maximum
+                ContentResolver cResolver = getContentResolver();
+                Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+                Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, 50);  // 255 is the maximum brightness
+
+                // Update the screen brightness
+                WindowManager.LayoutParams windowParams = getWindow().getAttributes();
+                windowParams.screenBrightness = 0.4f;  // 1.0f means full brightness
+                getWindow().setAttributes(windowParams);
+                flashOn = true;
+            } else {
+                /*ViewGroup.LayoutParams layoutParams = mTextureView.getLayoutParams();
+                layoutParams.width = initialWidth;  // Set the desired width in pixels
+                layoutParams.height = initialHeight;  // Set the desired height in pixels
+                mTextureView.setLayoutParams(layoutParams);*/
+                adjustBrightness(initialBrightness);
+                flashOn = false;
+            }
+            camFrame.setBackgroundColor(flashOn ? Color.WHITE : Color.BLACK);
+            flashLight.setImageTintList(ColorStateList.valueOf(flashOn ? Color.BLACK : Color.WHITE));
+            mirrorFlip.setImageTintList(ColorStateList.valueOf(flashOn ? Color.BLACK : Color.WHITE));
+            mBrightnessSeekBar.setProgressTintList(ColorStateList.valueOf(flashOn ? Color.BLACK : Color.WHITE));
+            mBrightnessSeekBar.setThumbTintList(ColorStateList.valueOf(flashOn ? Color.BLACK : Color.WHITE));
+            mBrightnessSeekBar.setProgressBackgroundTintList(ColorStateList.valueOf(flashOn ? Color.BLACK : Color.WHITE));
+            zoomIn.setImageTintList(ColorStateList.valueOf(flashOn ? Color.BLACK : Color.WHITE));
+            zoomOut.setImageTintList(ColorStateList.valueOf(flashOn ? Color.BLACK : Color.WHITE));
+
+        });
+
+
 
         mirrorFlip.setOnClickListener(v -> {
             float currentScaleX = mTextureView.getScaleX();
@@ -103,6 +179,16 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     }
 
     // Other methods remain the same...
+
+    private int getCurrentBrightness() {
+        ContentResolver cResolver = getContentResolver();
+        try {
+            return Settings.System.getInt(cResolver, Settings.System.SCREEN_BRIGHTNESS);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 
     private void openCamera() {
         try {
