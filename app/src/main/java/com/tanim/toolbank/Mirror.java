@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
@@ -76,7 +77,13 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         flashLight = findViewById(R.id.flashToggle);
         camFrame = findViewById(R.id.cameraFrame);
 
-        //Toast.makeText(Mirror.this, complement(), Toast.LENGTH_LONG).show();
+        ContentResolver contentResolver = Mirror.this.getContentResolver();
+        try {
+            initialBrightness = Settings.System.getInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS);
+        } catch (Settings.SettingNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         complement();
 
         flashOn = false;
@@ -108,10 +115,10 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
                 flashOn = true;
             } else {
                 ViewGroup.LayoutParams layoutParams = mTextureView.getLayoutParams();
-                layoutParams.width = 1280;  // Set the desired width in pixels
-                layoutParams.height = 720;  // Set the desired height in pixels
+                layoutParams.width = getScreenWidth();;  // Set the desired width in pixels
+                layoutParams.height = getScreenHeight() + 240;;  // Set the desired height in pixels
                 mTextureView.setLayoutParams(layoutParams);
-                adjustBrightness(initialBrightness);
+                adjustScreenBrightness(initialBrightness);
                 Toast.makeText(Mirror.this, "Flash turned OFF", Toast.LENGTH_SHORT).show();
                 flashOn = false;
             }
@@ -307,10 +314,6 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         }
     }
 
-
-
-    // Other methods remain the same...
-
     private Rect calculateZoomRect(float zoomLevel) {
         try {
             CameraCharacteristics characteristics = mCameraManager.getCameraCharacteristics(mCameraId);
@@ -328,6 +331,44 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
             return new Rect(0, 0, 0, 0);
         }
     }
+
+    private void adjustScreenBrightness(int initialBrightness) {
+        ContentResolver cResolver = getContentResolver();
+
+        // Set brightness back to the initial value
+        Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
+        Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, initialBrightness);
+
+        // Update the screen brightness
+        WindowManager.LayoutParams windowParams = getWindow().getAttributes();
+        windowParams.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+        getWindow().setAttributes(windowParams);
+    }
+
+    private int getScreenWidth() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+
+        if (windowManager != null) {
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.widthPixels;
+        } else {
+            return 0; // Return 0 or handle the error in your application
+        }
+    }
+
+    private int getScreenHeight() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+
+        if (windowManager != null) {
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.heightPixels;
+        } else {
+            return 0; // Return 0 or handle the error in your application
+        }
+    }
+
     private void complement() {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(() -> {
@@ -349,8 +390,7 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
 
             int ranPos = (int) (Math.random() * compString.length);
             Toast.makeText(Mirror.this, compString[ranPos], Toast.LENGTH_LONG).show();
-        }, 2000);
-
+        }, 1000);
 
     }
 

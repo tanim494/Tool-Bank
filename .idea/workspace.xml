@@ -73,7 +73,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-f4434dea-6lLCqf._adb-tls-connect._tcp]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -92,7 +92,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Za0MA2wXTK2AlpOofXimJY6Yrv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -360,7 +360,31 @@
       <option name="project" value="LOCAL" />
       <updated>1703338330445</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implemented random compliment in Mirror">
+      <option name="closed" value="true" />
+      <created>1703338528424</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1703338528424</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Implemented random compliment in Mirror">
+      <option name="closed" value="true" />
+      <created>1703338577059</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1703338577059</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Implemented random compliment in Mirror">
+      <option name="closed" value="true" />
+      <created>1703339030492</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1703339030492</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
