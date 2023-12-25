@@ -57,7 +57,7 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
     private float currentZoomLevel = 1f;
     private static final int MIN_BRIGHTNESS = -3;
     private static final int MAX_BRIGHTNESS = 3;
-    private static final float MAX_ZOOM_LEVEL = 2.5f;
+    private static final float MAX_ZOOM_LEVEL = 3.5f;
     private boolean flashOn;
     private int initialBrightness;
 
@@ -76,13 +76,6 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         mirrorFlip = findViewById(R.id.mirrorFlip);
         flashLight = findViewById(R.id.flashToggle);
         camFrame = findViewById(R.id.cameraFrame);
-
-        ContentResolver contentResolver = Mirror.this.getContentResolver();
-        try {
-            initialBrightness = Settings.System.getInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS);
-        } catch (Settings.SettingNotFoundException e) {
-            throw new RuntimeException(e);
-        }
 
         complement();
 
@@ -105,7 +98,7 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
                 // Set brightness to maximum
                 ContentResolver cResolver = getContentResolver();
                 Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-                Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, 50);  // 255 is the maximum brightness
+                Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, 255);  // 255 is the maximum brightness
 
                 // Update the screen brightness
                 WindowManager.LayoutParams windowParams = getWindow().getAttributes();
@@ -114,11 +107,20 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
                 Toast.makeText(Mirror.this, "Flash turned ON", Toast.LENGTH_SHORT).show();
                 flashOn = true;
             } else {
+
+                ContentResolver contentResolver = Mirror.this.getContentResolver();
+                try {
+                    initialBrightness = 100;
+                    Settings.System.getInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS);
+                } catch (Settings.SettingNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+
                 ViewGroup.LayoutParams layoutParams = mTextureView.getLayoutParams();
-                layoutParams.width = getScreenWidth();;  // Set the desired width in pixels
-                layoutParams.height = getScreenHeight() + 240;;  // Set the desired height in pixels
+                layoutParams.width = getScreenWidth();  // Set the desired width in pixels
+                layoutParams.height = getScreenHeight() + 240;  // Set the desired height in pixels
                 mTextureView.setLayoutParams(layoutParams);
-                adjustScreenBrightness(initialBrightness);
+                adjustScreenBrightness();
                 Toast.makeText(Mirror.this, "Flash turned OFF", Toast.LENGTH_SHORT).show();
                 flashOn = false;
             }
@@ -137,11 +139,12 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
 
         mirrorFlip.setOnClickListener(v -> {
             float currentScaleX = mTextureView.getScaleX();
-        Toast.makeText(Mirror.this, "Mirror Flipped", Toast.LENGTH_SHORT).show();
             if (currentScaleX == -1) {
                 mTextureView.setScaleX(1);
+                Toast.makeText(Mirror.this, "This is how you look in the mirror.", Toast.LENGTH_SHORT).show();
             } else if (currentScaleX == 1) {
                 mTextureView.setScaleX(-1);
+                Toast.makeText(Mirror.this, "This is how other's see you.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -332,16 +335,15 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         }
     }
 
-    private void adjustScreenBrightness(int initialBrightness) {
+    private void adjustScreenBrightness() {
         ContentResolver cResolver = getContentResolver();
-
+        // Set brightness mode to manual
+        Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         // Set brightness back to the initial value
-        Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
-        Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, initialBrightness);
-
+        Settings.System.putInt(cResolver, Settings.System.SCREEN_BRIGHTNESS, 255);
         // Update the screen brightness
         WindowManager.LayoutParams windowParams = getWindow().getAttributes();
-        windowParams.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+        windowParams.screenBrightness = 0.1f;  // 1.0f means full brightness
         getWindow().setAttributes(windowParams);
     }
 
