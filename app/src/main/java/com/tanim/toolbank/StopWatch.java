@@ -2,6 +2,7 @@ package com.tanim.toolbank;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,21 +16,28 @@ public class StopWatch extends AppCompatActivity {
     private boolean isRunning = false;
     private final Handler handler = new Handler();
     private Runnable runnable;
-    private long milliseconds = 0;
+    private long seconds = 0;
+    String lapText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stop_watch);
 
-        tvElapsedTime = findViewById(R.id.tvElapsedTime);
+        tvElapsedTime = findViewById(R.id.elapsedTime);
         btnStart = findViewById(R.id.btnStart);
         ImageView btnReset = findViewById(R.id.btnReset);
 
         btnStart.setOnClickListener(v -> toggleTimer());
-
         btnReset.setOnClickListener(v -> resetTimer());
+
+        Button addBt = findViewById(R.id.addLap);
+        TextView lapInfo = findViewById(R.id.lapInfo);
+        addBt.setOnClickListener(v -> {
+            lapInfo.setText(lapText);
+        });
     }
+
 
     private void toggleTimer() {
         if (isRunning) {
@@ -45,12 +53,13 @@ public class StopWatch extends AppCompatActivity {
         runnable = new Runnable() {
             @Override
             public void run() {
-                milliseconds += 100; // Increase by 10 milliseconds
+                seconds += 1; // Increase by 1000 milliseconds = 1 second
                 updateElapsedTime();
-                handler.postDelayed(this, 100);
+                handler.postDelayed(this, 1000);
+                lapText = seconds > 60 ? ((seconds /60) % 60) + " Minutes " + (seconds % 60) + " Second" : (seconds) + " Seconds";
             }
         };
-        handler.postDelayed(runnable, 100);
+        handler.postDelayed(runnable, 1000);
     }
 
     private void pauseTimer() {
@@ -63,17 +72,16 @@ public class StopWatch extends AppCompatActivity {
         isRunning = false;
         btnStart.setImageResource(R.drawable.ic_play);
         handler.removeCallbacks(runnable);
-        milliseconds = 0;
+        seconds = 0;
         updateElapsedTime();
     }
 
     private void updateElapsedTime() {
-        long hours = milliseconds / 3600000;
-        long minutes = (milliseconds % 3600000) / 60000;
-        long seconds = (milliseconds % 60000) / 1000;
-        long millis = milliseconds % 1000;
+        long hours = (seconds / 3600) % 60;
+        long minutes = (seconds / 60) % 60;
+        long seco = seconds % 60;
 
-        String time = String.format("%02d:%02d:%02d:%03d", hours, minutes, seconds, millis);
+        String time = String.format("%01dH : %02dM : %02dS", hours, minutes, seco);
         tvElapsedTime.setText(time);
     }
 }

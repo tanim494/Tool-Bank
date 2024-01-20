@@ -2,15 +2,58 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     android:background="@drawable/mainbg">
 
+    <!-- Dashboard Box -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dashCard"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardCornerRadius="28dp"
+        android:elevation="10dp">
+
+        <LinearLayout
+            android:id="@+id/dashboardBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nightbg"
+            android:padding="20dp"
+            android:orientation="vertical"
+            >
+
+            <!-- Weather Info -->
+            <TextView
+                android:id="@+id/weatherInfo"
+                style="@style/DashboardText"
+                android:text="Weather: Sunny" />
+
+            <TextView
+                android:id="@+id/timeInfo"
+                style="@style/DashboardText"/>
+
+            <!-- Date Info -->
+            <TextView
+                android:id="@+id/dateInfo"
+                style="@style/DashboardText"/>
+
+
+
+            <!-- Add more info as needed -->
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- RecyclerView for Tools -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/gamesRecyclerView"
+        android:id="@+id/toolsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/dashCard"
         android:layout_marginTop="16dp"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/authorBtn"

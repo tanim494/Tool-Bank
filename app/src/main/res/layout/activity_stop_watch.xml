@@ -6,17 +6,17 @@
     tools:context=".StopWatch">
 
     <TextView
-        android:id="@+id/tvElapsedTime"
+        android:id="@+id/elapsedTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/btn_bg"
         android:padding="10dp"
-        android:text="00:00:00:000"
+        android:text="0H : 00M : 00S"
         android:textSize="40sp" />
 
     <LinearLayout
-        android:layout_below="@id/tvElapsedTime"
+        android:layout_below="@id/elapsedTime"
         android:weightSum="2"
         android:padding="16dp"
         android:layout_width="match_parent"
@@ -34,5 +34,27 @@
             android:src="@drawable/ic_reset"
             android:importantForAccessibility="no" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        >
+        <TextView
+            android:id="@+id/lapInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/addLap"
+            />
+        <Button
+            android:id="@+id/addLap"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:text="Lap"/>
+    </RelativeLayout>
 
 </RelativeLayout>
