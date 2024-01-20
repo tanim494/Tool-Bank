@@ -27,7 +27,7 @@
             <TextView
                 android:id="@+id/weatherInfo"
                 style="@style/DashboardText"
-                android:text="Weather: Sunny" />
+                android:text="Temperature: " />
 
             <TextView
                 android:id="@+id/timeInfo"
@@ -54,6 +54,14 @@
         android:layout_below="@id/dashCard"
         android:layout_marginTop="16dp"
         android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolsRecyclerView"
+        android:textSize="30sp"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/authorBtn"

@@ -31,7 +31,7 @@ public class StopWatch extends AppCompatActivity {
         btnStart.setOnClickListener(v -> toggleTimer());
         btnReset.setOnClickListener(v -> resetTimer());
 
-        Button addBt = findViewById(R.id.addLap);
+        TextView addBt = findViewById(R.id.addLap);
         TextView lapInfo = findViewById(R.id.lapInfo);
         addBt.setOnClickListener(v -> {
             lapInfo.setText(lapText);
