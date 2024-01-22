@@ -60,6 +60,9 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHold
                 Intent in3 = new Intent(context, FlashLight.class);
                 context.startActivity(in3);
                 break;
+            case "BMI":
+                Intent in4 = new Intent(context, Bmi.class);
+                context.startActivity(in4);
         }
     }
 

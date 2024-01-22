@@ -2,10 +2,13 @@ package com.tanim.toolbank;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,7 +41,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     double latitude;
     double longitude;
 
@@ -49,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // setupRunner();
-        initialSetup();
+        locationSetup();
+        Toast.makeText(this, isLocationEnabled() ? "Using GPS for Live Weather" : "Using Previously Saved Location for Weather", Toast.LENGTH_SHORT).show();
         updateDashboard();
 
         Button author = findViewById(R.id.authorBtn);
-
         author.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Author.class);
+            Intent intent = new Intent(this, Author.class);
             startActivity(intent);
         });
 
@@ -66,50 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Execute the AsyncTask to fetch and display the quote
         // new FetchQuoteTask().execute();
-    }
-
-    private void initialSetup() {
-
-        // Check and request location permission
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    LOCATION_PERMISSION_REQUEST_CODE);
-        } else {
-            // Permission already granted or requested
-            requestLocationUpdates();
-        }
-    }
-
-    private void requestLocationUpdates() {
-        // Check if the location provider is enabled
-        // For simplicity, we use the fused location provider here
-        // You may consider using other providers based on your requirements
-        // (e.g., GPS_PROVIDER, NETWORK_PROVIDER)
-        // FusedLocationProviderClient is part of the Google Play services
-        FusedLocationProviderClient locationClient =
-                LocationServices.getFusedLocationProviderClient(this);
-
-        if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) ==
-                PackageManager.PERMISSION_GRANTED) {
-
-            locationClient.getLastLocation()
-                    .addOnSuccessListener(this, location -> {
-                        if (location != null) {
-                            latitude = location.getLatitude();
-                            longitude = location.getLongitude();
-                            getWeatherData(latitude, longitude);
-                        }
-                    });
-        }
-    }
-
-    private boolean isDay() {
-        Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        return hour > 6 && hour < 18;
     }
 
     private void updateDashboard() {
@@ -133,8 +91,96 @@ public class MainActivity extends AppCompatActivity {
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
         String postTime = hour >= 12 && hour < 24 ? " PM" : " AM";
-        String time = String.format("%d:%02d:%02d %s", hour % 12, minute, second, postTime);
+        String time = hour == 0 || hour == 12 ? String.format("%d:%02d:%02d %s", 12, minute, second, postTime) : String.format("%d:%02d:%02d %s", hour % 12, minute, second, postTime);
         timeInfo.setText("Time: " + time);
+    }
+
+    private boolean isDay() {
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        return hour > 6 && hour < 18;
+    }
+
+    private ArrayList<ToolModel> getToolList() {
+        ArrayList<ToolModel> tools = new ArrayList<>();
+        tools.add(new ToolModel("Mirror", R.drawable.ic_mirror));
+        tools.add(new ToolModel("Stop Watch", R.drawable.ic_stopwatch));
+        tools.add(new ToolModel("Flash Light", R.drawable.ic_flash));
+        tools.add(new ToolModel("BMI", R.drawable.ic_bmi));
+        // Add more tools as needed
+        return tools;
+    }
+
+    private void locationSetup() {
+        Handler handler = new Handler();
+        Runnable runnable = this::locationSetup;
+        handler.postDelayed(runnable, 10000);
+        // Check if location permission is granted
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Request location permission if not granted
+            ActivityCompat.requestPermissions(this, new String [] {Manifest.permission.ACCESS_FINE_LOCATION},1001);
+        } else {
+            // Check if location is enabled
+            if (isLocationEnabled()) {
+                // Request location updates if enabled
+                requestLocationUpdates();
+            } else {
+                // Use last known location from SharedPreferences if location is not enabled
+                useLastKnownLocation();
+            }
+        }
+    }
+
+    private void useLastKnownLocation() {
+        // Retrieve last known location from SharedPreferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        latitude = Double.parseDouble(preferences.getString("last_latitude", "23.6850"));
+        longitude = Double.parseDouble(preferences.getString("last_longitude", "90.3563"));
+        getWeatherData(latitude, longitude);
+    }
+
+    private boolean isLocationEnabled() {
+        try {
+            int mode = Settings.Secure.getInt(getContentResolver(), Settings.Secure.LOCATION_MODE);
+            return mode != Settings.Secure.LOCATION_MODE_OFF;
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private void requestLocationUpdates() {
+        // Check if the location provider is enabled
+        // For simplicity, we use the fused location provider here
+        // You may consider using other providers based on your requirements
+        // (e.g., GPS_PROVIDER, NETWORK_PROVIDER)
+        // FusedLocationProviderClient is part of the Google Play services
+        FusedLocationProviderClient locationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED) {
+
+            locationClient.getLastLocation()
+                    .addOnSuccessListener(this, location -> {
+                        if (location != null) {
+                            latitude = location.getLatitude();
+                            longitude = location.getLongitude();
+                            getWeatherData(latitude, longitude);
+                            saveLastKnownLocation(latitude, longitude);
+                        }
+                    });
+        }
+    }
+
+    private void saveLastKnownLocation(double latitude, double longitude) {
+        // Save last known location in SharedPreferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("last_latitude", String.valueOf(latitude));
+        editor.putString("last_longitude", String.valueOf(longitude));
+        editor.apply();
     }
 
     private void getWeatherData(double latitude, double longitude) {
@@ -145,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Use a library like Retrofit, Volley, or OkHttp to make the API request
         // (Example using AsyncTask for simplicity)
-
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... voids) {
@@ -163,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
                     return null;
                 }
             }
-
             @Override
             protected void onPostExecute(String result) {
                 if (result != null) {
@@ -198,14 +242,5 @@ public class MainActivity extends AppCompatActivity {
         }
         reader.close();
         return stringBuilder.toString();
-    }
-
-    private ArrayList<ToolModel> getToolList() {
-        ArrayList<ToolModel> tools = new ArrayList<>();
-        tools.add(new ToolModel("Mirror", R.drawable.ic_mirror));
-        tools.add(new ToolModel("Stop Watch", R.drawable.ic_stopwatch));
-        tools.add(new ToolModel("Flash Light", R.drawable.ic_flash));
-        // Add more tools as needed
-        return tools;
     }
 }
