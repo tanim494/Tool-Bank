@@ -40,23 +40,18 @@ import java.util.List;
 
 public class Mirror extends AppCompatActivity implements TextureView.SurfaceTextureListener{
 
-    private static final int REQUEST_CAMERA_PERMISSION = 100;
     private TextureView mTextureView;
     private CameraManager mCameraManager;
     private String mCameraId;
     private Surface mSurface;
-    ImageView zoomIn;
-    ImageView zoomOut;
-    ImageView mirrorFlip;
-    ImageView flashLight;
+    ImageView zoomIn , zoomOut, mirrorFlip, flashLight;
     RelativeLayout camFrame;
     private CameraDevice mCameraDevice;
     private CameraCaptureSession mCaptureSession;
     private CameraCaptureSession.CaptureCallback mCaptureCallback;
     private CaptureRequest.Builder mPreviewRequestBuilder;
     private float currentZoomLevel = 1f;
-    private static final int MIN_BRIGHTNESS = -3;
-    private static final int MAX_BRIGHTNESS = 3;
+    private static final int MIN_BRIGHTNESS = -3, MAX_BRIGHTNESS = 3, REQUEST_CAMERA_PERMISSION = 100;
     private static final float MAX_ZOOM_LEVEL = 3.5f;
     private boolean flashOn;
     private int initialBrightness;
@@ -77,6 +72,13 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
         flashLight = findViewById(R.id.flashToggle);
         camFrame = findViewById(R.id.cameraFrame);
 
+        mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+        } else {
+            openCamera();
+        }
         complement();
 
         flashOn = false;
@@ -170,13 +172,6 @@ public class Mirror extends AppCompatActivity implements TextureView.SurfaceText
 
         zoomOut.setOnClickListener(v -> zoomCamera((float) -0.5));
 
-        mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-        } else {
-            openCamera();
-        }
     }
 
     // Other methods remain the same...

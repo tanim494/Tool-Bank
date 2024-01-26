@@ -41,8 +41,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    double latitude;
-    double longitude;
+    double latitude, longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
-        String postTime = hour >= 12 && hour < 24 ? " PM" : " AM";
+        String postTime = hour >= 12 ? " PM" : " AM";
         String time = hour == 0 || hour == 12 ? String.format("%d:%02d:%02d %s", 12, minute, second, postTime) : String.format("%d:%02d:%02d %s", hour % 12, minute, second, postTime);
         timeInfo.setText("Time: " + time);
     }
@@ -107,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         tools.add(new ToolModel("Stop Watch", R.drawable.ic_stopwatch));
         tools.add(new ToolModel("Flash Light", R.drawable.ic_flash));
         tools.add(new ToolModel("BMI", R.drawable.ic_bmi));
+        tools.add(new ToolModel("Salat Times", R.drawable.ic_salat));
         // Add more tools as needed
         return tools;
     }
@@ -227,7 +227,6 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "Failed to fetch weather data", Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute();

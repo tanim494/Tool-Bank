@@ -33,21 +33,21 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ToolViewHolder holder, final int position) {
-        final ToolModel game = toolList.get(position);
+        final ToolModel tool = toolList.get(position);
 
-        // Set game icon/image
-        holder.toolIcon.setImageResource(game.getIconResourceId());
+        // Set tool icon/image
+        holder.toolIcon.setImageResource(tool.getIconResourceId());
 
-        // Set game name
-        holder.toolName.setText(game.getName());
+        // Set tool name
+        holder.toolName.setText(tool.getName());
 
         // Handle item click
-        holder.itemView.setOnClickListener(view -> openGameActivity(game.getName()));
+        holder.itemView.setOnClickListener(view -> openToolActivity(tool.getName()));
 
     }
 
-    private void openGameActivity(String gameName) {
-        switch (gameName) {
+    private void openToolActivity(String toolName) {
+        switch (toolName) {
            case "Mirror" :
                 Intent in1 = new Intent(context, Mirror.class);
                 context.startActivity(in1);
@@ -63,10 +63,13 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHold
             case "BMI":
                 Intent in4 = new Intent(context, Bmi.class);
                 context.startActivity(in4);
+                break;
+            case "Salat Times":
+                Intent in5 = new Intent(context, SalatTime.class);
+                context.startActivity(in5);
+                break;
         }
     }
-
-
 
     @Override
     public int getItemCount() {
