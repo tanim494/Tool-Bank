@@ -11,38 +11,42 @@
         android:id="@+id/dashCard"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        app:cardCornerRadius="28dp"
+        app:cardCornerRadius="20dp"
         android:elevation="10dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/dashboardBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/nightbg"
-            android:padding="20dp"
-            android:orientation="vertical"
             >
 
-            <!-- Weather Info -->
             <TextView
-                android:id="@+id/weatherInfo"
+                android:id="@+id/dateInfo"
                 style="@style/DashboardText"
-                android:text="Temperature: " />
+                android:layout_alignParentTop="true"
+                android:background="@drawable/buttonbackground"
+                android:backgroundTint="#B2DFDB"
+                />
 
             <TextView
                 android:id="@+id/timeInfo"
-                style="@style/DashboardText"/>
+                style="@style/DashboardText"
+                android:layout_alignParentBottom="true"
+                android:text="Time: "/>
 
-            <!-- Date Info -->
-            <TextView
-                android:id="@+id/dateInfo"
-                style="@style/DashboardText"/>
+                <TextView
+                    android:id="@+id/weatherInfo"
+                    style="@style/DashboardText"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="60dp"
+                    android:textSize="30sp"
+                    android:text="16"
+                    />
 
+        </RelativeLayout>
 
-
-            <!-- Add more info as needed -->
-
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 

@@ -15,6 +15,11 @@
           <theme>@style/Theme.ToolBank</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_compass.xml">
+        <config>
+          <theme>@style/Theme.ToolBank</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_flash_light.xml">
         <config>
           <theme>@style/Theme.ToolBank</theme>
@@ -36,6 +41,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_stop_watch.xml">
+        <config>
+          <theme>@style/Theme.ToolBank</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/compass_view.xml">
         <config>
           <theme>@style/Theme.ToolBank</theme>
         </config>
@@ -71,22 +81,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5220522-3a92-44f4-b4e4-319455cd2f1a" name="Changes" comment="Implemented BMI">
+    <list default="true" id="f5220522-3a92-44f4-b4e4-319455cd2f1a" name="Changes" comment="Implementing Salat times">
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tanim/toolbank/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tanim/toolbank/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tanim/toolbank/Mirror.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tanim/toolbank/Mirror.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tanim/toolbank/ToolsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tanim/toolbank/ToolsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,9 +121,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Kotlin Class" />
         <option value="valueResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -170,6 +181,9 @@
       <recent name="com.tanim.toolbank" />
     </key>
     <key name="android.template.-211754528">
+      <recent name="com.tanim.toolbank" />
+    </key>
+    <key name="android.template.-1997791967">
       <recent name="com.tanim.toolbank" />
     </key>
     <key name="android.template.-1736022270">
@@ -482,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705951452750</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Implementing Salat times">
+      <option name="closed" value="true" />
+      <created>1706297965038</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1706297965038</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -506,6 +528,7 @@
     <MESSAGE value="Fixed some bugs" />
     <MESSAGE value="updates" />
     <MESSAGE value="Implemented BMI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented BMI" />
+    <MESSAGE value="Implementing Salat times" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing Salat times" />
   </component>
 </project>

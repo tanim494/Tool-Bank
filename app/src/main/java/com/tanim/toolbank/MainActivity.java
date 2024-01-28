@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,13 +77,13 @@ public class MainActivity extends AppCompatActivity {
         // Inside your MainActivity.java
         TextView dateInfo = findViewById(R.id.dateInfo);
         TextView timeInfo = findViewById(R.id.timeInfo);
-        LinearLayout dash = findViewById(R.id.dashboardBox);
+        RelativeLayout dash = findViewById(R.id.dashboardBox);
         dash.setBackgroundResource(isDay() ? R.drawable.daybg : R.drawable.nightbg);
 
         // Get and set current date information (replace with your logic)
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy", Locale.getDefault());
         String currentDate = sdf.format(new Date());
-        dateInfo.setText("Date: " + currentDate);
+        dateInfo.setText(currentDate);
 
         // Set current time
         Calendar calendar = Calendar.getInstance();
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         tools.add(new ToolModel("Flash Light", R.drawable.ic_flash));
         tools.add(new ToolModel("BMI", R.drawable.ic_bmi));
         tools.add(new ToolModel("Salat Times", R.drawable.ic_salat));
+        tools.add(new ToolModel("Compass", R.drawable.ic_compass));
         // Add more tools as needed
         return tools;
     }
@@ -220,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                             if (mainObject.has("temp")) {
                                 double temperatureCelsius = mainObject.getDouble("temp");
                                 TextView weatherInfo = findViewById(R.id.weatherInfo);
-                                weatherInfo.setText("Temperature: " + temperatureCelsius + "°C");
+                                weatherInfo.setText(temperatureCelsius + "°C");
                             }
                         }
                     } catch (JSONException e) {

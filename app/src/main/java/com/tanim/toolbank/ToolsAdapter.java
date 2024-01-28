@@ -68,6 +68,10 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHold
                 Intent in5 = new Intent(context, SalatTime.class);
                 context.startActivity(in5);
                 break;
+            case "Compass":
+                Intent in6 = new Intent(context, Compass.class);
+                context.startActivity(in6);
+                break;
         }
     }
 

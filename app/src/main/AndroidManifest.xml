@@ -4,6 +4,7 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.front" />
+    <uses-feature android:name="android.hardware.sensor.compass" android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -23,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToolBank"
         tools:targetApi="31">
+        <activity
+            android:name=".Compass"
+            android:exported="false" />
         <activity
             android:name=".SalatTime"
             android:exported="false" />

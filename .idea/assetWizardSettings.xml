@@ -34,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_compass" />
-                            <entry key="sourceFile" value="C:\Users\tanim\Downloads\compass-svgrepo-com.svg" />
+                            <entry key="outputName" value="ic_indicator" />
+                            <entry key="sourceFile" value="C:\Users\tanim\Downloads\down_small_fill.svg" />
                           </map>
                         </option>
                       </PersistentState>
