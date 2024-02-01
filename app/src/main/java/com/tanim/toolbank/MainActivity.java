@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
         String postTime = hour >= 12 ? " PM" : " AM";
-        String time = hour == 0 || hour == 12 ? String.format("%d:%02d:%02d %s", 12, minute, second, postTime) : String.format("%d:%02d:%02d %s", hour % 12, minute, second, postTime);
-        timeInfo.setText("Time: " + time);
+        String time = hour == 0 || hour == 12 ? String.format("%d : %02d : %02d %s", 12, minute, second, postTime) : String.format("%d : %02d : %02d %s", hour % 12, minute, second, postTime);
+        timeInfo.setText(time);
     }
 
     private boolean isDay() {

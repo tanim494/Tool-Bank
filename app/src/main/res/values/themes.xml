@@ -21,13 +21,14 @@
     <style name="DashboardText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:layout_margin">10dp</item>
         <item name="android:padding">8dp</item>
-        <item name="android:shadowColor">@color/primary</item>
-        <item name="android:shadowRadius">10</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/bungee_inline</item>
+        <item name="android:textColor">@color/dashText</item>
+        <item name="android:shadowColor">@color/dashTextShadow</item>
+        <item name="android:shadowRadius">18</item>
     </style>
 
 </resources>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="@drawable/mainbg"
+    android:background="@color/primary"
     tools:context=".Author">
     <LinearLayout
         android:orientation="vertical"
