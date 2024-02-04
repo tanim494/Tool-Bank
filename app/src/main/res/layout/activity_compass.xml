@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/primary">
+    android:background="@color/secondary">
 
     <LinearLayout
         android:id="@+id/compassContainer"
@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:scaleType="centerInside"
+        android:padding="10dp"
         android:src="@drawable/compass_bg"
         />
 
@@ -26,7 +27,16 @@
         android:layout_above="@id/compassContainer"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:scaleType="center"
         android:layout_centerHorizontal="true"
         android:src="@drawable/ic_indicator"/>
+    <TextView
+        android:id="@+id/degreeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="60dp"
+        android:textColor="@color/primary"
+        android:layout_below="@id/compassContainer"/>
 
 </RelativeLayout>

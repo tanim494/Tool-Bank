@@ -7,6 +7,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,7 @@ public class Compass extends AppCompatActivity {
     private SensorManager sensorManager;
     private Sensor rotationVectorSensor;
     private ImageView compassImage;
+    TextView degreeText;
 
     private SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
@@ -29,8 +31,24 @@ public class Compass extends AppCompatActivity {
             // Convert azimuth to degrees
             float azimuth = (float) Math.toDegrees(orientationValues[0]);
 
+            azimuth = (azimuth + 360) % 360;
+
             // Rotate the compass image based on the azimuth
             compassImage.setRotation(-azimuth);
+
+            // Convert float to integer for display
+            int show = (int) azimuth;
+            String direction = "";
+            if (azimuth >= 0  && azimuth <=90) {
+                direction = "N ";
+            } else if (azimuth >= 90  && azimuth <=180) {
+                direction = "E ";
+            } else if (azimuth >= 271  && azimuth <=360) {
+                direction = "W ";
+            } else {
+                direction = "S ";
+            }
+            degreeText.setText(direction + String.valueOf(show) + "°");
         }
 
 
@@ -51,6 +69,7 @@ public class Compass extends AppCompatActivity {
 
         // Initialize ImageView
         compassImage = findViewById(R.id.compassImage);
+        degreeText = findViewById(R.id.degreeText);
     }
 
     @Override

@@ -1,9 +1,6 @@
 package com.tanim.toolbank;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -13,8 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.osmdroid.config.Configuration;
+import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.osmdroid.views.overlay.Marker;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -27,7 +29,7 @@ public class SalatTime extends AppCompatActivity {
 
     private TextView textViewFajr, textViewDuhr, textViewAsr, textViewMagrib, textViewIsha;
     double userLatitude, userLongitude;
-    String [] salatTimes;
+    private MapView mapView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +42,21 @@ public class SalatTime extends AppCompatActivity {
         textViewMagrib = findViewById(R.id.textViewMagrib);
         textViewIsha = findViewById(R.id.textViewIsha);
 
+
         // Set up the Refresh button
         Button buttonRefresh = findViewById(R.id.buttonRefresh);
-        buttonRefresh.setOnClickListener(view -> {
-                    new RefreshPrayerTimesTask().execute();
-                }
-        );
+        buttonRefresh.setOnClickListener(view -> new RefreshPrayerTimesTask().execute());
 
         // Initial prayer times update
         new RefreshPrayerTimesTask().execute();
+
+        mapView = findViewById(R.id.mapView);
+        mapView.getController().setCenter(new GeoPoint(userLatitude, userLongitude));
+        mapView.getController().setZoom(10);
+        Marker startMarker = new Marker(mapView);
+        startMarker.setPosition(new GeoPoint(userLatitude, userLongitude));
+        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
+        mapView.getOverlays().add(startMarker);
     }
 
     private class RefreshPrayerTimesTask extends AsyncTask<Void, Void, ArrayList<String>> {
@@ -173,11 +181,12 @@ public class SalatTime extends AppCompatActivity {
 
                         // Create a list to store the formatted prayer times
                         ArrayList<String> formattedPrayerTimes = new ArrayList<>();
-                        formattedPrayerTimes.add("Fajr Time: " + fajr);
-                        formattedPrayerTimes.add("Duhr Time: " + duhr);
-                        formattedPrayerTimes.add("Asr Time: " + asr);
-                        formattedPrayerTimes.add("Maghrib Time: " + maghrib);
-                        formattedPrayerTimes.add("Isha Time: " + isha);
+                        formattedPrayerTimes.add("Fajr Time: " + formatTime(timings.getString("Fajr")));
+                        formattedPrayerTimes.add("Duhr Time: " + formatTime(timings.getString("Dhuhr")));
+                        formattedPrayerTimes.add("Asr Time: " + formatTime(timings.getString("Asr")));
+                        formattedPrayerTimes.add("Maghrib Time: " + formatTime(timings.getString("Maghrib")));
+                        formattedPrayerTimes.add("Isha Time: " + formatTime(timings.getString("Isha")));
+
 
                         return formattedPrayerTimes;
                     } else {
@@ -192,5 +201,25 @@ public class SalatTime extends AppCompatActivity {
                 return null;
             }
         }
+
+        private static String formatTime(String rawTime) {
+            try {
+                // Parse the raw time
+                String[] timeParts = rawTime.split(":");
+                int hour = Integer.parseInt(timeParts[0]);
+                int minute = Integer.parseInt(timeParts[1].substring(0, 2)); // Extract only the first two characters
+
+                // Convert to 12-hour format
+                String period = (hour >= 12) ? "PM" : "AM";
+                hour = (hour > 12) ? hour - 12 : hour;
+
+                // Format the time as "H:MM PM"
+                return String.format("%d:%02d %s", hour, minute, period);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return rawTime; // Return the raw time if formatting fails
+            }
+        }
     }
+
 }

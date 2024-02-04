@@ -1,70 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:background="@color/primary"
     android:padding="16dp">
 
+
     <TextView
         android:id="@+id/textViewFajr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fajr Time: "
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        style="@style/PrayerTimeTextView"
+        />
 
     <TextView
         android:id="@+id/textViewDuhr"
-        android:layout_below="@id/textViewFajr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Duhr Time: "
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        style="@style/PrayerTimeTextView"
+        />
 
     <TextView
         android:id="@+id/textViewAsr"
-        android:layout_below="@id/textViewDuhr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Asr Time: "
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        style="@style/PrayerTimeTextView"
+        />
 
     <TextView
         android:id="@+id/textViewMagrib"
-        android:layout_below="@id/textViewAsr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Maghrib Time: "
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        style="@style/PrayerTimeTextView"
+        />
 
     <TextView
         android:id="@+id/textViewIsha"
-        android:layout_below="@id/textViewMagrib"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Isha Time: "
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Add similar TextViews for other prayer times -->
+        style="@style/PrayerTimeTextView"
+        />
 
     <Button
         android:id="@+id/buttonRefresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/PrayerTimeButton"
         android:text="Refresh"
-        android:layout_below="@+id/textViewIsha"
-        android:layout_marginTop="16dp"
         android:onClick="refreshPrayerTimes"/>
 
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomView"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true" />
 
-</RelativeLayout>
+</LinearLayout>
