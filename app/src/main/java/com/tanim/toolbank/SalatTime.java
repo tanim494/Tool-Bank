@@ -40,38 +40,15 @@ public class SalatTime extends AppCompatActivity {
         textViewMagrib = findViewById(R.id.textViewMagrib);
         textViewIsha = findViewById(R.id.textViewIsha);
 
-        //Initial Time Setup
-        setupSalatTime();
-
         // Set up the Refresh button
         Button buttonRefresh = findViewById(R.id.buttonRefresh);
         buttonRefresh.setOnClickListener(view -> {
-            new RefreshPrayerTimesTask().execute();
-        }
+                    new RefreshPrayerTimesTask().execute();
+                }
         );
 
         // Initial prayer times update
         new RefreshPrayerTimesTask().execute();
-    }
-
-    private void setupSalatTime() {
-        if (isConnected()) {
-            new RefreshPrayerTimesTask().execute();
-        }
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("last_latitude", String.valueOf(latitude));
-        editor.putString("last_longitude", String.valueOf(longitude));
-        preferences.getStringSet("salat",)
-        editor.apply();
-    }
-
-    private boolean isConnected() {
-        ConnectivityManager manager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        // Initialize network info
-        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-        // get connection status
-        return networkInfo != null && networkInfo.isConnectedOrConnecting();
     }
 
     private class RefreshPrayerTimesTask extends AsyncTask<Void, Void, ArrayList<String>> {
@@ -83,6 +60,9 @@ public class SalatTime extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList<String> prayerTimesList) {
             if (prayerTimesList != null) {
+                // Save the fetched prayer times to SharedPreferences
+                savePrayerTimesToSharedPreferences(prayerTimesList);
+
                 // Update TextViews with the new prayer times
                 textViewFajr.setText(prayerTimesList.get(0));
                 textViewDuhr.setText(prayerTimesList.get(1));
@@ -91,10 +71,50 @@ public class SalatTime extends AppCompatActivity {
                 textViewIsha.setText(prayerTimesList.get(4));
             } else {
                 // Handle the case where there was an issue getting the prayer times
-                // Display an error message or take appropriate action
+                // Try to load saved prayer times from SharedPreferences
+                ArrayList<String> savedPrayerTimes = loadPrayerTimesFromSharedPreferences();
+                if (savedPrayerTimes != null) {
+                    // Use saved prayer times if available
+                    textViewFajr.setText(savedPrayerTimes.get(0));
+                    textViewDuhr.setText(savedPrayerTimes.get(1));
+                    textViewAsr.setText(savedPrayerTimes.get(2));
+                    textViewMagrib.setText(savedPrayerTimes.get(3));
+                    textViewIsha.setText(savedPrayerTimes.get(4));
+                } else {
+                    // Display an error message or take appropriate action
+                }
             }
         }
+
+        private void savePrayerTimesToSharedPreferences(ArrayList<String> prayerTimesList) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor = preferences.edit();
+
+            // Save each prayer time to SharedPreferences
+            for (int i = 0; i < prayerTimesList.size(); i++) {
+                editor.putString("prayer_time_" + i, prayerTimesList.get(i));
+            }
+
+            editor.apply();
+        }
+
+        private ArrayList<String> loadPrayerTimesFromSharedPreferences() {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+            ArrayList<String> savedPrayerTimes = new ArrayList<>();
+                for (int i = 0; i < 5; i++) {
+                    String prayerTime = preferences.getString("prayer_time_" + i, null);
+                    if (prayerTime != null) {
+                        savedPrayerTimes.add(prayerTime);
+                    } else {
+                        // If any prayer time is missing, return null
+                        return null;
+                    }
+                }
+                return savedPrayerTimes;
+        }
     }
+
 
     private ArrayList<String> refreshPrayerTimes() {
         try {
