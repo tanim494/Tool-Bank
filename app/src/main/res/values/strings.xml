@@ -93,4 +93,11 @@
     <string name="degree_270_text" translatable="false">270</string>
     <string name="degree_300_text" translatable="false">300</string>
     <string name="degree_330_text" translatable="false">330</string>
+
+    <string-array name="gauge_array">
+        <item>18 Gauge</item>
+        <item>20 Gauge</item>
+        <item>22 Gauge</item>
+        <item>24 Gauge</item>
+    </string-array>
 </resources>

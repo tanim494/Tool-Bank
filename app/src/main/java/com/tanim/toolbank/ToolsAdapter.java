@@ -72,6 +72,10 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ToolViewHold
                 Intent in6 = new Intent(context, Compass.class);
                 context.startActivity(in6);
                 break;
+            case "Steel Weight":
+                Intent in7 = new Intent(context, SteelWeight.class);
+                context.startActivity(in7);
+                break;
         }
     }
 

@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#2c3e50"
+    android:padding="16dp">
+
+    <!-- Height, Width, and Depth Inputs (for calculation) -->
+    <EditText
+        android:id="@+id/heightInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Height (Feet)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/widthInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Width (Feet)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/depthInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Depth (inches)"
+        android:inputType="numberDecimal" />
+
+    <!-- Gauge Spinner -->
+    <Spinner
+        android:id="@+id/gaugeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Calculate Button -->
+    <Button
+        android:id="@+id/calculateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate" />
+
+    <!-- Result Text -->
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estimated Weight: \nEstimated Price: \nSell Price: "
+        android:textSize="18sp" />
+
+    <!-- Edit Costs Layout (always shown) -->
+    <LinearLayout
+        android:id="@+id/editLayout"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Steel Price"
+            android:textSize="10sp" />
+        <EditText
+            android:id="@+id/steelPriceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="133"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mistri Taka"
+            android:textSize="10sp" />
+        <EditText
+            android:id="@+id/laborCostInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="3000"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color Cost"
+            android:textSize="10sp" />
+        <EditText
+            android:id="@+id/colorCostInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="2000"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Component Cost"
+            android:textSize="10sp" />
+        <EditText
+            android:id="@+id/componentCostInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="1800"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other Cost"
+            android:textSize="10sp" />
+        <EditText
+            android:id="@+id/otherCostInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="500"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Extra Weight %"
+            android:textSize="10sp" />
+        <EditText
+            android:id="@+id/extraWeightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="35"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profit Margin %"
+            android:textSize="10sp" />
+        <EditText
+            android:id="@+id/profitInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="30"
+            android:enabled="false" />
+    </LinearLayout>
+
+    <!-- Edit and Done Buttons -->
+    <Button
+        android:id="@+id/editBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Costs" />
+
+
+</LinearLayout>

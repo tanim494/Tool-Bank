@@ -43,6 +43,9 @@
         <activity
             android:name=".StopWatch"
             android:exported="false" />
+
+        <activity android:name=".SteelWeight" />
+
         <activity
             android:name=".Mirror"
             android:exported="false" />

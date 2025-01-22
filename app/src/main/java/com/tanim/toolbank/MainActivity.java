@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         tools.add(new ToolModel("BMI", R.drawable.ic_bmi));
         tools.add(new ToolModel("Salat Times", R.drawable.ic_salat));
         tools.add(new ToolModel("Compass", R.drawable.ic_compass));
+        tools.add(new ToolModel("Steel Weight", R.drawable.ic_compass));
         // Add more tools as needed
         return tools;
     }
