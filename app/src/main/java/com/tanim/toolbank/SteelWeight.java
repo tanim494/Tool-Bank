@@ -102,10 +102,13 @@ public class SteelWeight extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isEditMode) {
-                    // If in edit mode, switch to view mode
+                    // Save the updated cost values when exiting edit mode
+                    saveCosts();
+
+                    // Switch to view mode
                     isEditMode = false;
 
-                    // Make the cost fields non-editable again
+                    // Make the cost fields non-editable
                     steelPriceInput.setEnabled(false);
                     laborCostInput.setEnabled(false);
                     colorCostInput.setEnabled(false);
@@ -117,7 +120,7 @@ public class SteelWeight extends AppCompatActivity {
                     // Change the button text back to "Edit Costs"
                     editBtn.setText("Edit Costs");
                 } else {
-                    // If not in edit mode, switch to edit mode
+                    // Switch to edit mode
                     isEditMode = true;
 
                     // Make the cost fields editable
